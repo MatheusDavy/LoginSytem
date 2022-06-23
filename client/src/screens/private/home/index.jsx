@@ -1,8 +1,18 @@
-import React from "react";
+import React, {Fragment} from "react";
+import { useNavigate } from "react-router-dom";
+import useAuth from "../../../hooks/useAuth";
 
 const HomeScreen = ()=>{
+    const {signout} = useAuth()
+    const navigate = useNavigate()
+
     return(
-        <h1>Home</h1>
+        <Fragment>
+            <h1>HOME</h1>
+            <br/>
+            <button onClick={()=>[signout(), navigate("/")]}>Sair</button>
+        </Fragment>
+        
     )
 }
 

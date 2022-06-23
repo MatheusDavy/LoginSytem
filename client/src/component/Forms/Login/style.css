@@ -87,6 +87,21 @@ main form input[type="submit"]:hover{
 .login span{
     color: rgba(0, 0, 255, 0.618);
     font-weight: bold;
+} 
+#btn_login{
+    width: 80px;
+    border-radius: 100px;
+    border:none;
+    background-color: gray;
+    padding: 8px 10px;
+    color: white;
+    font-size: 15px;
+    transition: 0.3s;
+    align-self: center;
+    margin-bottom: 25px;
+}
+#btn_login:hover{
+    background-color: rgba(0, 0, 255, 0.618);
 }
 .login a{
     text-decoration: none;
@@ -94,9 +109,12 @@ main form input[type="submit"]:hover{
 .login a:hover{
     text-decoration: underline;
 }
-
-
-
+.error{
+    margin-left: 17%;
+    font-size: 15px;
+    width: 100%;
+    color: red;
+}
 
 
 @media only screen and (max-device-width: 405px){

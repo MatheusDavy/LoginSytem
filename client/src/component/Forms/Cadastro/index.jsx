@@ -1,32 +1,47 @@
 import React, { useState, useEffect } from "react";
+
 import "../Cadastro/style.css";
 import Google from '../../../assets/google.png'
 import Facebook from '../../../assets/facebook.png'
 import Linkedin from '../../../assets/linkedin.png'
 
-import {Link} from 'react-router-dom'
+import {Link, useNavigate} from 'react-router-dom'
+
+import useAuth from "../../../hooks/useAuth";
 
 
 
 const CadastroForms = () => {
 
-    const [cadastro, setCadastro] = useState({
-        name: '',
-        email: '',
-        password: '',
-    });
-    const handleChange = (event) => setCadastro(
-        {
-            ...cadastro,
-            [event.currentTarget.name]: event.currentTarget.value
+    const [name, setName] = useState('')
+    const [email, setEmail] = useState('')
+    const [senha, setSenha] = useState('')
+    const [error, setError] = useState("")
+
+    const navigate = useNavigate()
+
+    const {signup} = useAuth()
+
+    const handleSignup = (e)=>{
+      e.preventDefault()
+
+      if(!name | !email | !senha){
+        setError("Preencha todos os campos")
+        return
+      }
+        const res = signup(email, senha);
+
+        if(res){
+          setError(res)
+          return;
         }
-    );
-    const SubmitCadastro = (e)=>{
-        e.preventDefault()
-      
-      
-        
-    }
+
+        alert("Usuário Cadastrado Com Sucesso!!!")
+
+        navigate("/")
+      }
+
+
 
 
   return (
@@ -54,15 +69,15 @@ const CadastroForms = () => {
           <div></div>
         </div>
 
-        <form onSubmit={SubmitCadastro} >
+        <form >
           <label for=""/>
             <span>Name</span>
             <input
               type="text"
               name="name"
               id="name"
-              velue={cadastro.name}
-              onChange={handleChange}
+              velue={name}
+              onChange={(e)=> [setName(e.target.value), setError('')]}
               required
               
             />
@@ -74,8 +89,8 @@ const CadastroForms = () => {
               type="email"
               name="email"
               id="email"
-              velue={cadastro.email}
-              onChange={handleChange}
+              velue={email}
+              onChange={(e)=> [setEmail(e.target.value), setError('')]}
               required
             />
             
@@ -86,17 +101,19 @@ const CadastroForms = () => {
               type="password"
               name="password"
               id="password"
-              velue={cadastro.password}
-              onChange={handleChange}
+              velue={senha}
+              onChange={(e)=> [setSenha(e.target.value), setError('')]}
               required
 
             />
+            <br/>
+            <span className="error">{error}</span>
             
-          <input type="submit" value="Sign up" />
+          <input  value="Sign up" type='submit' onClick={handleSignup} />
         </form>
         <div className="registrar">
           I already have a registration{" "}
-          <Link className="nav_page" to="/login">Log In</Link>
+          <Link className="nav_page" to="/">Log In</Link>
         </div>
       </main>
     </div>

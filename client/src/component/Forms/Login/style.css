@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,300;0,900;1,400;1,800&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', Arial, Helvetica, sans-serif;
+}
+.background{
+    background-image: linear-gradient(45deg, rgba(25, 0, 250, 0.638), rgb(8, 5, 70));
+    width: 100%;
+    height: 100vh;
+}
+.nav_page{
+    font-size: 12px;
+    font-weight: bold;
+}
+main{
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    width: 400px;
+    border-radius: 5px;
+    transition: 0.5s;
+    margin: 0 auto;
+    position: relative;
+    top: 50%;
+    transform: translatey(-50%);
+}
+main:hover{
+    box-shadow: rgba(0, 0, 0, 0.645) 1px 1px 5px;
+}
+main h4{
+    font-size: 25px;
+    margin: 0 auto;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+    color: rgba(85, 0, 255, 0.618);
+}
+form{
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+}
+form label{
+    display: flex;
+    flex-direction: column;
+}
+form span{
+    margin-top: 25px;
+    font-size: 14px;
+}
+form input{
+    background-color: rgb(208, 207, 207);
+    height: 50px;
+    width: 320px;
+    padding: 0 0.5rem;
+    margin-top: 10px;
+    outline: none;
+    border: none;  
+    border-radius: 5px;
+}
+main form input[type="submit"]{
+    cursor: pointer;
+    border:none;
+    border-radius: 100px;
+    width: 100px;
+    height: 40px;
+    margin-top: 30px;
+    margin-left: 50%;
+    margin-bottom: 25px;
+    transform: translateX(-50%);
+    transition: 0.5s;
+    color: rgb(0, 0, 0);
+}
+main form input[type="submit"]:hover{
+    background-color: rgba(0, 0, 255, 0.618);
+    box-shadow: 1px 1px 5px;
+    color: white;
+}
+.login{
+    font-size: 10px;
+    margin: auto;
+    margin-bottom: 25px;
+}
+.login span{
+    color: rgba(0, 0, 255, 0.618);
+    font-weight: bold;
+}
+.login a{
+    text-decoration: none;
+}
+.login a:hover{
+    text-decoration: underline;
+}
+
+
+
+
+
+@media only screen and (max-device-width: 405px){
+    main{
+        width: 390px;
+    }
+}
